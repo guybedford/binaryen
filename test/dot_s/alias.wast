@@ -4,8 +4,6 @@
  (table 2 2 anyfunc)
  (elem (i32.const 0) $__wasm_nullptr $__exit)
  (data (i32.const 16) "\d2\04\00\00\00\00\00\00)\t\00\00")
- (export "__exit" (func $__exit))
- (export "__needs_exit" (func $__needs_exit))
  (export "dynCall_v" (func $dynCall_v))
  (func $__exit (type $FUNCSIG$v)
   (return

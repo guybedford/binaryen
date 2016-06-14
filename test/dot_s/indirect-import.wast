@@ -13,8 +13,6 @@
  (import "env" "extern_sret" (func $extern_sret (param i32)))
  (table 7 7 anyfunc)
  (elem (i32.const 0) $__wasm_nullptr $__importThunk_extern_fd $__importThunk_extern_vj $__importThunk_extern_v $__importThunk_extern_ijidf $__importThunk_extern_struct $__importThunk_extern_sret)
- (export "bar" (func $bar))
- (export "baz" (func $baz))
  (export "dynCall_fd" (func $dynCall_fd))
  (export "dynCall_v" (func $dynCall_v))
  (export "dynCall_vi" (func $dynCall_vi))
