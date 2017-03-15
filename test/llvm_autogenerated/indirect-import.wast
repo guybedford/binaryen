@@ -15,7 +15,6 @@
  (table 7 7 anyfunc)
  (elem (i32.const 0) $__wasm_nullptr $__importThunk_extern_fd $__importThunk_extern_vj $__importThunk_extern_v $__importThunk_extern_ijidf $__importThunk_extern_struct $__importThunk_extern_sret)
  (data (i32.const 4) "\10\04\00\00")
- (export "bar" (func $bar))
  (export "dynCall_fd" (func $dynCall_fd))
  (export "dynCall_v" (func $dynCall_v))
  (export "dynCall_vi" (func $dynCall_vi))

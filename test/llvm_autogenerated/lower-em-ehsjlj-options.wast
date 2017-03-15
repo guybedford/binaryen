@@ -18,8 +18,6 @@
  (data (i32.const 12) "\00\00\00\00")
  (data (i32.const 16) "\00\00\00\00")
  (data (i32.const 20) "\00\00\00\00")
- (export "exception" (func $exception))
- (export "setjmp_longjmp" (func $setjmp_longjmp))
  (export "setThrew" (func $setThrew))
  (export "setTempRet0" (func $setTempRet0))
  (export "dynCall_v" (func $dynCall_v))
