@@ -242,6 +242,8 @@ class Linker {
     out.addStatic(4, 4, "__dso_handle");
   }
 
+  void setDefaultVisibility (bool _defaultVisibility) { defaultVisibility = _defaultVisibility; }
+
   // Return a reference to the LinkerObject for the main executable. If empty,
   // it can be passed to an S2WasmBuilder and constructed.
   LinkerObject& getOutput() { return out; }
@@ -327,6 +329,7 @@ class Linker {
   //(after linking, this is rounded and set on the wasm object in pages)
   bool importMemory;  // Whether the memory should be imported instead of
                       // defined.
+  bool defaultVisibility; // Whether to export only globl functions with default visibility.
   Address stackAllocation;
   bool debug;
 

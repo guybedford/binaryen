@@ -34,6 +34,7 @@ int main(int argc, const char *argv[]) {
   bool ignoreUnknownSymbols = false;
   bool generateEmscriptenGlue = false;
   bool allowMemoryGrowth = false;
+  bool defaultVisibility = false;
   std::string startFunction;
   std::vector<std::string> archiveLibraries;
   Options options("s2wasm", "Link .s file into .wast");
@@ -85,6 +86,11 @@ int main(int argc, const char *argv[]) {
            [&generateEmscriptenGlue](Options *, const std::string &) {
              generateEmscriptenGlue = true;
            })
+      .add("--defaultVisibility", "", "Only export functions with default visibility",
+          Options::Arguments::Zero,
+          [&defaultVisibility](Options *, const std::string &) {
+            defaultVisibility = true;
+          })
       .add("--library", "-l", "Add archive library",
            Options::Arguments::N,
            [&archiveLibraries](Options *o, const std::string &argument) {
@@ -134,6 +140,9 @@ int main(int argc, const char *argv[]) {
   Linker linker(globalBase, stackAllocation, initialMem, maxMem,
                 generateEmscriptenGlue, ignoreUnknownSymbols, startFunction,
                 options.debug);
+
+  if (defaultVisibility)
+    linker.setDefaultVisibility(true);
 
   S2WasmBuilder mainbuilder(input.c_str(), options.debug);
   linker.linkObject(mainbuilder);
